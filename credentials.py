@@ -52,6 +52,22 @@ class Credentials:
             if credential.app_name == app_name:
                 return credential
             
+
+    @classmethod
+    def display_credential(cls,password):
+        '''
+        Method that returns the credential list
+        Args:
+        acccount_password : password
+        '''
+        user_credential_list = []
+        
+        for credential in cls.credentials_list:
+            if credential.account_password == password:
+                user_credential_list.append(credential)
+            
+            return user_credential_list
+
     @classmethod
     def credentials_exist(cls, app_name):
         '''
