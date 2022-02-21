@@ -66,3 +66,6 @@ def main ():
             break
         else: 
             print('insert a valid code for you to continue')
+            
+if __name__ == ' __main___ ':
+    main()
