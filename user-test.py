@@ -1,14 +1,16 @@
+from collections import UserList
 from signal import default_int_handler
 
-import unittest
-from run import user
+import unittest  #importing the unittesting module
+from user import user
 
 
-class User:
+class Testuser:
+    '''
+    this test class defines the test cases for the user class 
     
-    # generates new user instance 
+    Args:
+    unittest.Testcase: testcase class which helps in creating test cases.
+    '''
     
-    user_list = []
-    
-    def __init__(self, user_name, password) -> None:
-        pass
+    UserList

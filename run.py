@@ -1,6 +1,12 @@
 import random
 import string
 
+from user import User
+
+
+
+
+
 def main ():
     
     while True: 

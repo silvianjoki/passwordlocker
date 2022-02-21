@@ -1,10 +1,17 @@
 class User: 
-    
-    # this class generates a new user instance
+    '''
+    this class generates new instances of users
+    '''
     
     user_list = []
     
     def __init__(self, user_name, password):
+        
+        '''
+        ags:
+        username= user's name
+        password = account password
+        '''
         self.user_name = user_name
         self.password = password
         
