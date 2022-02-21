@@ -33,3 +33,34 @@ def main ():
                 entered_password = input()
                 
             while entered_username != created_user_name or entered_password != created_user_password:
+                print('your username or password did not match')
+                print('username')
+                entered_username = input()
+                print ('password')
+                entered_password = input()
+            else: 
+                print(f'welcome {created_user_name} you can now use your account! ')
+                print ('\n')
+                
+        elif short_code == 'log':
+            print('welcome')
+            print ('share your user name ')
+            default_user_name = input()
+            
+            print ('enter your password')
+            default_user_password = input()
+            print('\n')
+            while default_user_name != 'sampleuser' or default_user_password != '12345':
+                print('wrong username or password.')
+                print ('enter user name')
+                default_user_name = input()
+                
+                print('enter password')
+                default_user_password = input()
+                print ('\n')
+            else: 
+                print('login succesfull')
+                print('\n')
+                
+        elif short_code == 'ex':
+            break
