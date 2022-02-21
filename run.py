@@ -64,3 +64,5 @@ def main ():
                 
         elif short_code == 'ex':
             break
+        else: 
+            print('insert a valid code for you to continue')
