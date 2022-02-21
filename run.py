@@ -12,11 +12,17 @@ def create_user(username, password):
     new_user = User(username, password)
     return new_user
 
-def add_user(user):
+def save_user(user):
     '''
     Function to save user information
     '''
-    user.add_user()
+    user.save_user()
+    
+def remove_user(user):
+    '''
+    Function removes the user
+    '''
+    user.delete_user()
     
 def check_existing_user(username, password):
     '''
@@ -29,6 +35,42 @@ def find_user(username):
     Function finds user by username
     '''
     return User.find_by_username(username)
+
+def create_credentials (app_name, account_username, account_password):
+    '''
+    Function enables addition of new credentials
+    '''
+    new_credentials = Credentials(app_name, account_username, account_password)
+    return new_credentials
+
+def check_existing_user(username, password):
+    '''
+    Function checks for existing users
+    '''
+    return User.user_exists(username, password)
+
+def display_credentials():
+    '''
+    Function displays the saved credentials
+    '''
+    return Credentials.display_credentials()
+
+g
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
