@@ -30,7 +30,7 @@ def find_user(username):
     '''
     return User.find_by_username(username)
 
-def check_existing_credentials ()
+
 
 
 def main ():
