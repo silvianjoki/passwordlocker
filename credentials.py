@@ -16,7 +16,7 @@ class Credentials:
         self.account_username = account_username
         self.account_password = account_password
     
-    def add_credentials (self):
+    def save_credentials (self):
         
         '''
         this will add new credentials to the credentials list
@@ -35,11 +35,35 @@ class Credentials:
     def display_credentials(cls, username):
         '''
         this method displays the credential list
-        
-        returns the user
         '''
-        user_user_list = []
-        for user in user.user_list:
-            if user.username == username:
-                return user
+        return Credentials.credentials_list
+    
+    @classmethod
+    def find_by_app_name( cls, app_name):
+        '''
+        Method that takes in the app_name and returns the credentials that matches the app
+        Args:
+        app_name- name of application 
         
+        returns:
+        Credentials matching the application
+        '''
+        for credential in Credentials.credentials_list:
+            if credential.app_name == app_name:
+                return credential
+            
+    @classmethod
+    def credentials_exist(cls, app_name):
+        '''
+        Method resolves the presence of credentials in the credentials list
+        
+        Args:
+        app_name - name to display if the account is in existence
+        
+        Returns:
+        Type boolean
+        '''
+        for credential in Credentials.credentials_list:
+            if credential.app_name == app_name:
+                return True
+        return False
