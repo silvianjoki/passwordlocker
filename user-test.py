@@ -5,12 +5,13 @@ import unittest  #importing the unittesting module
 from user import user
 
 
-class Testuser:
+class Testuser(unittest.TestCase):
     '''
     this test class defines the test cases for the user class 
-    
+    '''
+    '''
     Args:
     unittest.Testcase: testcase class which helps in creating test cases.
     '''
     
-    UserList
+    

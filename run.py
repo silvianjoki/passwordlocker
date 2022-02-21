@@ -2,13 +2,39 @@ import random
 import string
 
 from user import User
+from credentials import Credentials
 
 
+def create_user(username, password):
+    '''
+    this function creates a new user
+    '''
+    new_user = User(username, password)
+    return new_user
 
+def add_user(user):
+    '''
+    Function to save user information
+    '''
+    user.add_user()
+    
+def check_existing_user(username, password):
+    '''
+    Function to define existing user authentication
+    '''
+    return User.user_exists(username)
+
+def find_user(username):
+    '''
+    Function finds user by username
+    '''
+    return User.find_by_username(username)
+
+def check_existing_credentials ()
 
 
 def main ():
-    
+    print ('Hello, welcome to passwordlocker!')
     while True: 
         print ('Hello, welcome to passwordlocker!')
         print('\n')
@@ -33,7 +59,7 @@ def main ():
                 print (f'congrats {created_user_name} account creation was a success! ')
                 print('\n')
                 print('proceed to login now')
-                print(username)
+                print(created_user_name)
                 entered_username = input()
                 print('your password please')
                 entered_password = input()

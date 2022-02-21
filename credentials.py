@@ -28,6 +28,8 @@ class Credentials:
         this will delete credentials from the credential list
         '''
         Credentials.credentials_list.remove(self)
+        
+
     
     @classmethod
     def display_credentials(cls, username):
