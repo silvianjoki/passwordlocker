@@ -55,20 +55,25 @@ def display_credentials():
     '''
     return Credentials.display_credentials()
 
+def remove_credentials(new_credentials):
+    '''
+    Function to remove credentials
+    '''
+    new_credentials.delete_credentials()
+
+def find_credentials(app_name):
+    '''
+    function uses app_name to find credentials of users
+    '''
+    return Credentials.find_by_app_name(app_name)
+
+def check_existing_credentials(app_name):
+    '''
+    Function checks existing credentials by linking to the application name
+    '''
+    return Credentials.credentials_exist(app_name)
+    
 g
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
