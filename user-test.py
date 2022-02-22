@@ -2,7 +2,7 @@ from collections import UserList
 from signal import default_int_handler
 
 import unittest  #importing the unittesting module
-from user import User, user
+from user import User
 
 
 class Testuser(unittest.TestCase):
@@ -18,7 +18,7 @@ class Testuser(unittest.TestCase):
         '''
         Setup method to run before each test case. 
         '''
-        self.new_user = user('Silvia, 53')
+        self.new_user = User('Silvia, 53')
         
     def test_initialization(self):
         '''
@@ -38,7 +38,7 @@ class Testuser(unittest.TestCase):
         '''
         tearDown method conducts a clean up once each test case has run
         '''
-        user.user_list = []
+        User.user_list = []
         
     def test_user_exists(self):
             

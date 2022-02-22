@@ -1,6 +1,4 @@
-import random
-import string
-
+from typing import Tuple
 from user import User
 from credentials import Credentials
 
@@ -73,81 +71,101 @@ def check_existing_credentials(app_name):
     '''
     return Credentials.credentials_exist(app_name)
     
-
+def save_credentials (new_credentials):
+    '''
+    Function to save credentials
+    '''
+    new_credentials.save_credentials()
 
 
 
 def main ():
-    print ('Hello, welcome to passwordlocker!')
+    '''
+    Function that runs the password locker
+    '''
+    print ('Hello, welcome to passwordlocker! Use this short codes to get around')
+    
     while True: 
+        '''
+        Loop that manages the whole application
+        '''
         
-        print ('What is your name?')
-        current_user = input().strip(' ').capitalize()
-        if current_user !='':
-            print(f'Hello {current_user},')
-            while True:
-                print ('Please use these short codes to navigae the application')
+        print('''Short codes
+        nu- new user short code to create account
+        lg- log in to your password locker account
+        ad- add account details for a platform
+        dl- delete account details for a platform 
+        ex- exit password locker account''')
+        
+        #Get user short codes 
+        short_code = input().lower()
+        
+        if short_code == 'nu':
+            '''
+            Create a new user account
+            '''
+            
+            print ('\n')
+            print ('new passwordlocker account')
+            print('_'*10)
+            
+            print('username ..')
+            username = input()
+            
+            print('password')
+            login_password = input()
+            #save new user 
+            save_user(create_user(username, login_password))
+            
+            print('\n')
+            print(f' {username} welcome to passwordlocker ' )
+            print('\n')
+        
+        elif short_code =='lg':
+            print('\n')
+            print('log in into the passwordlocker account')
+            print('enter your username')
+            username = input()
+            
+            print('enter your password')
+            login_password= input()
+            
+            if check_existing_user(username, login_password):
+                print('\n succesful login')
+                print('use short codes to navigate to what you want to do CC: Create new credentials \n DC: delete a credential \n FC: Find credentials  \n VC: View all credentials')
                 short_code = input().lower()
                 
-                if short_code == 'nu':
-                    print('create username')
-                    created_user_name = input ()
-                    
-                    print ('create password')
-                    created_user_password = input()
-                    
-                    print ('confirm your password')
-                    confirm_password = input()
-                    
-                    while confirm_password != created_user_password:
-                        print('your passwords did not match try again!')
-                        print ('enter your password again')
-                        created_user_password= input()
-                        print ('confirm your password')
-                        confirm_password = input()
-                    else:
-                        print (f'congrats {created_user_name} account creation was a success! ')
-                        print('\n')
-                        print('proceed to login now')
-                        print(created_user_name)
-                        entered_username = input()
-                        print('your password please')
-                        entered_password = input()
-                        
-                    while entered_username != created_user_name or entered_password != created_user_password:
-                        print('your username or password did not match')
-                        print('username')
-                        entered_username = input()
-                        print ('password')
-                        entered_password = input()
-                    else: 
-                        print(f'welcome {created_user_name} you can now use your account! ')
-                        print ('\n')
-                        
-                elif short_code == 'log':
-                    print('welcome')
-                    print ('share your user name ')
-                    default_user_name = input()
-                    
-                    print ('enter your password')
-                    default_user_password = input()
-                    print('\n')
-                    while default_user_name != 'sampleuser' or default_user_password != '12345':
-                        print('wrong username or password.')
-                        print ('enter user name')
-                        default_user_name = input()
-                        
-                        print('enter password')
-                        default_user_password = input()
-                        print ('\n')
-                    else: 
-                        print('login succesfull')
-                        print('\n')
-                        
-                elif short_code == 'ex':
-                    break
-                else: 
-                    print('insert a valid code for you to continue')
-                    
-if __name__ == ' __main___ ':
-    main()
+                if short_code == 'CC':
+                    print('\n Create new credentials')
+                    print('_'*10)
+                    while True:
+                        print('Application name:')
+                        app_name = input()
+                        if app_name !='':
+                            print(f'whats your user name for the app/desired name')
+                            account_username = input()
+                            
+                            while True:
+                                print(f'Do you have an existing password on {app_name}? Y/N ')
+                                existing_password = input()
+                                if existing_password =='Y':
+                                    print(f"Insert your {app_name} password ")
+                                    account_password = input()
+                                    save_credentials(create_credentials(
+                                        app_name, account_username, account_password))
+                                    print(f'\n Account credentials for {app_name} under you name were created ')
+                                    break
+                                
+                                elif existing_password == 'N':
+                                    while True:
+                                        print(f'enter your preffered password to use on {app_name} ')
+                                        account_password = input()
+                                        save_credentials(create_credentials(
+                                            app_name, account_username, account_password))
+                                        print (f'Account details for {app_name} were successfully created ')
+                                        break
+                                    
+                
+                
+# if __name__ == ' __main___ ':
+#     main()
