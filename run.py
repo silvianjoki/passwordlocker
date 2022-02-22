@@ -197,8 +197,39 @@ def main ():
                                             elif delete_credential == 'N':
                                                 print('\n your credentials have remained here. ')
                                                 break
+                                            else: 
+                                                print('kindly select a valid option try again either Yes or No (Y/N')
+                                                continue
                                     
+                                    else:
+                                        print(f'\n credentials for the {app_name} do not exist')
+                                        continue
+                                        
+                                elif short_code == 'VC':
+                                    display_credentials
+                                    print('\n view all your credentials here')
+                                    print('_'*10)
+                                    for credential in display_credentials():
+                                        print (f'\App name: {credential.app_name} \n Username: {credential.account_username}, \n Password: {credential.account_password} ')
+                                        continue
+                                    else:
+                                        print('\n Kindly add your details to the lists')
+                                        continue
+                                    
+                                elif short_code == 'ex':
+                                    print(f'\n you successfully left the application')
+                                
+                                else:
+                                    print('\n You did not select a valid option here')
+                                    print('\n kindly try again')
+                                    continue
+                                
+                        else:
+                            print(f'\n did you add anything?')
+                            
+                            
+                        break
                 
                 
-# if __name__ == ' __main___ ':
-#     main()
+if __name__ == ' __main___ ':
+    main()
