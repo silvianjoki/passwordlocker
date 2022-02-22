@@ -1,4 +1,6 @@
+from os import fchdir
 from typing import Tuple
+from xml.etree.ElementPath import find
 from user import User
 from credentials import Credentials
 
@@ -164,6 +166,30 @@ def main ():
                                             app_name, account_username, account_password))
                                         print (f'Account details for {app_name} were successfully created ')
                                         break
+                                    
+                                elif short_code == 'FC':
+                                    print('\n find credentials')
+                                    print('_'*10)
+                                    print('\eg Instagram')
+                                    searched_app = input()
+                                    
+                                    if check_existing_credentials(searched_app):
+                                        searched_credential = find_credentials(searched_app)
+                                        print(f'\n app-name: {searched_app.app_name}, \n {searched_credential.account_username}, \n password: {searched_credential.account_password} ')
+                                        
+                                    else:
+                                        print(f'\Sadly, we could not find the {searched_app} credentials')
+                                        
+                                        continue
+                                
+                                elif short_code == 'DC':
+                                    print(f'\n delete credentials')
+                                    app_name= input()
+                                    
+                                    if check_existing_credentials(app_name):
+                                        while True:
+                                            print(f'you sure you wanna do that to your {app_name} Y/N ')
+                                            delete_credential = input()
                                     
                 
                 
