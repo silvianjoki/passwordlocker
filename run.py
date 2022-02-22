@@ -190,6 +190,13 @@ def main ():
                                         while True:
                                             print(f'you sure you wanna do that to your {app_name} Y/N ')
                                             delete_credential = input()
+                                            if delete_credential == 'Y':
+                                                remove_credentials(find_credentials(app_name))
+                                                print(f'\n Your credentials were successfully removed for {app_name} ')
+                                                
+                                            elif delete_credential == 'N':
+                                                print('\n your credentials have remained here. ')
+                                                break
                                     
                 
                 
