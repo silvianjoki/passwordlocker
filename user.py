@@ -27,7 +27,7 @@ class User:
         User.user_list.remove(self)
 
     @classmethod
-    def find_by_username (cls, username):
+    def find_by_username (cls, user_name):
         '''
         Will authenticate the username 
         
@@ -35,11 +35,11 @@ class User:
         returns: user
         '''
         for user in User.user_list:
-            if user.username == username:
+            if user.user_name == user_name:
                 return user
     
     @classmethod
-    def user_exists (cls, username, password):
+    def user_exists (cls, user_name, password):
         '''
         This will show whether the user exists in the user list information
         
@@ -48,6 +48,6 @@ class User:
         
         '''
         for user in cls.user_list:
-            if user.username == username and user.password == password:
+            if user.user_name == user_name and user.password == password:
                 return True
         return False

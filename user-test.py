@@ -1,4 +1,4 @@
-from collections import UserList
+
 from signal import default_int_handler
 
 import unittest  #importing the unittesting module
@@ -18,13 +18,13 @@ class Testuser(unittest.TestCase):
         '''
         Setup method to run before each test case. 
         '''
-        self.new_user = User('Silvia, 53')
+        self.new_user = User('Silvia', '53')
         
     def test_initialization(self):
         '''
         test_init test case to test if the object is initialized appropriately
         '''
-        self.assertEqual(self.new_user.username, 'Silvia')
+        self.assertEqual(self.new_user.user_name, 'Silvia')
         self.assertEqual(self.new_user.password, '53')
         
     def test_save_user(self):
@@ -48,7 +48,6 @@ class Testuser(unittest.TestCase):
         self.new_user.save_user()
         test_user = User('future', '68')
         test_user.save_user()
-        
         user_exists = User.user_exists('future', '68')
         self.assertTrue(user_exists)
 
@@ -61,7 +60,7 @@ class Testuser(unittest.TestCase):
         test_user.save_user()
         
         test_user.delete_user()
-        self.assertEqual(len(User.user_list,1))
+        self.assertEqual(len(User.user_list),1)
         
     def test_find_user_by_username(self):
         '''
