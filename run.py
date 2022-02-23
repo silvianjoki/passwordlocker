@@ -1,5 +1,4 @@
 from os import fchdir
-from typing import Tuple
 from xml.etree.ElementPath import find
 from user import User
 from credentials import Credentials
@@ -148,23 +147,23 @@ def main ():
                             account_username = input()
                             
                             while True:
-                                print(f"\nDo you have an existing password on {app_name}? Y/N?")
+                                print ('Do you have a current password on' + {app_name} + 'Y/N' )
                                 existing_password = input()
                                 if existing_password =='Y':
-                                    print(f"Insert your {app_name} password ")
+                                    print ( 'Input your ' + {app_name} + 'password' )
                                     account_password = input()
                                     save_credentials(create_credentials(
                                         app_name, account_username, account_password))
-                                    print(f'\n Account credentials for {app_name} under you name were created ')
+                                    print(' Account credentials for' + {app_name} +  'under you name were created ')
                                     break
                                 
                                 elif existing_password == 'N':
                                     while True:
-                                        print(f'enter your preffered password to use on {app_name} ')
+                                        print('enter your preffered password to use on' + {app_name} )
                                         account_password = input()
                                         save_credentials(create_credentials(
                                             app_name, account_username, account_password))
-                                        print (f'Account details for {app_name} were successfully created ')
+                                        print ('Account details for' + {app_name} + 'were successfully created ')
                                         break
                                     
                                 elif short_code == 'FC':
@@ -175,24 +174,24 @@ def main ():
                                     
                                     if check_existing_credentials(searched_app):
                                         searched_credential = find_credentials(searched_app)
-                                        print(f'\n app-name: {searched_app.app_name}, \n {searched_credential.account_username}, \n password: {searched_credential.account_password} ')
+                                        print('app-name:' + {searched_app.app_name} + {searched_credential.account_username} + 'password:' + {searched_credential.account_password} )
                                         
                                     else:
-                                        print(f'\Sadly, we could not find the {searched_app} credentials')
+                                        print('Sadly, we coud not find the' + {searched_app} + 'credentials')
                                         
                                         continue
                                 
                                 elif short_code == 'DC':
-                                    print(f'\n delete credentials')
+                                    print(' delete credentials')
                                     app_name= input()
                                     
                                     if check_existing_credentials(app_name):
                                         while True:
-                                            print(f'you sure you wanna do that to your {app_name} Y/N ')
+                                            print('you sure you wanna do that to your' + {app_name} + 'Y/N')
                                             delete_credential = input()
                                             if delete_credential == 'Y':
                                                 remove_credentials(find_credentials(app_name))
-                                                print(f'\n Your credentials were successfully removed for {app_name} ')
+                                                print('Your credentials were successfully removed for' + {app_name} )
                                                 
                                             elif delete_credential == 'N':
                                                 print('\n your credentials have remained here. ')
@@ -202,7 +201,7 @@ def main ():
                                                 continue
                                     
                                     else:
-                                        print(f'\n credentials for the {app_name} do not exist')
+                                        print ('credentials for the' +  {app_name} + 'do not exist')
                                         continue
                                         
                                 elif short_code == 'VC':
@@ -210,14 +209,14 @@ def main ():
                                     print('\n view all your credentials here')
                                     print('_'*10)
                                     for credential in display_credentials():
-                                        print (f'\App name: {credential.app_name} \n Username: {credential.account_username}, \n Password: {credential.account_password} ')
+                                        print ('App name:' + {credential.app_name} + 'Username:' + {credential.account_username} + 'Password:' + {credential.account_password} )
                                         continue
                                     else:
                                         print('\n Kindly add your details to the lists')
                                         continue
                                     
                                 elif short_code == 'ex':
-                                    print(f'\n you successfully left the application')
+                                    print('you successfully left the application')
                                 
                                 else:
                                     print('\n You did not select a valid option here')
@@ -225,7 +224,7 @@ def main ():
                                     continue
                                 
                         else:
-                            print(f'\n did you add anything?')
+                            print('did you add anything?')
                             
                             
                         break

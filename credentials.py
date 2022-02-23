@@ -10,7 +10,7 @@ class Credentials:
     
     credentials_list = []
     
-    def __init__(self, app_name, account_username, account_password) -> None:
+    def __init__(self, app_name, account_username, account_password):
         
         self.app_name = app_name
         self.account_username = account_username
