@@ -112,15 +112,15 @@ def main ():
             print('_'*10)
             
             print('username ..')
-            username = input()
+            user_name = input()
             
             print('password')
             login_password = input()
             #save new user 
-            save_user(create_user(username, login_password))
+            save_user(create_user(user_name, login_password))
             
             print('\n')
-            print(f' {username} welcome to passwordlocker ' )
+            # print(f'\n {user_name} welcome to passwordlocker')
             print('\n')
         
         elif short_code =='lg':
@@ -144,11 +144,11 @@ def main ():
                         print('Application name:')
                         app_name = input()
                         if app_name !='':
-                            print(f'whats your user name for the app/desired name')
+                            # print(f'whats your user name for the app/desired name')
                             account_username = input()
                             
                             while True:
-                                print(f'Do you have an existing password on {app_name}? Y/N ')
+                                print(f"\nDo you have an existing password on {app_name}? Y/N?")
                                 existing_password = input()
                                 if existing_password =='Y':
                                     print(f"Insert your {app_name} password ")
