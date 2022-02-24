@@ -1,7 +1,7 @@
-from abc import abstractclassmethod
+
 import random
-from signal import default_int_handler
 import string
+
 
 class Credentials: 
     '''
@@ -30,7 +30,6 @@ class Credentials:
         Credentials.credentials_list.remove(self)
         
 
-    
     @classmethod
     def display_credentials(cls):
         '''
@@ -54,19 +53,11 @@ class Credentials:
             
 
     @classmethod
-    def display_credential(cls,password):
+    def display_credentials(cls,):
         '''
         Method that returns the credential list
-        Args:
-        acccount_password : password
         '''
-        user_credential_list = []
-        
-        for credential in cls.credentials_list:
-            if credential.account_password == password:
-                user_credential_list.append(credential)
-            
-            return user_credential_list
+        return Credentials.credentials_list
 
     @classmethod
     def credentials_exist(cls, app_name):

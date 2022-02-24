@@ -16,8 +16,7 @@ class TestCredentials(unittest.TestCase):
         '''
         This sets up a method to run before each test case
         '''
-        #create credentials object
-        self.new_credentials = Credentials('Silvia', 'insta', 'insta1')
+        self.new_credentials = Credentials('insta', 'silvia', 'insta1')
         
     def tearDown(self):
         '''
@@ -39,7 +38,6 @@ class TestCredentials(unittest.TestCase):
         '''
         #save new credential
         self.new_credentials.save_credentials()
-        
         self.assertEqual(len (Credentials.credentials_list), 1)
         
     def test_save_multiple_credentials(self):
@@ -48,11 +46,8 @@ class TestCredentials(unittest.TestCase):
         '''
         #save new information for multiple users
         self.new_credentials.save_credentials()
-        
-        test_credentials = Credentials('silvie', 'Twitter', 'twitter1')
-        
+        test_credentials = Credentials('Twitter','silvie' 'twitter1')
         test_credentials.save_credentials()
-        
         self.assertEqual( len (Credentials.credentials_list),2)
         
     def test_generate_password(self):
@@ -60,38 +55,35 @@ class TestCredentials(unittest.TestCase):
         Test case to check whether user can sign into the app
         '''
         generate_password = self.new_credentials.generate_password()
-        
         self.assertEqual(len (generate_password), 8)
         
-    def test_show_credentials(self):
+    def test_display_credentials(self):
         '''
         Test case displays all user credentials
         '''
+        self.assertEqual(Credentials.display_credentials(), Credentials.credentials_list)
+        
+        
+    def test_find_by_application_name(self):
+        '''
+        test to check if we can find a credentials by application name
+        '''
         self.new_credentials.save_credentials()
-        
-        test_credentials = Credentials('silvie', 'Twitter', 'twitter1')
-        
+        test_credentials = Credentials("Insta", "Gamie", "101")
         test_credentials.save_credentials()
+        found_credential = Credentials.find_by_app_name("Instagram")
+        self.assertEqual(found_credential.account_username, test_credentials.account_username)
         
-        test_credentials = Credentials ('silvie', 'Twitter', 'twitter1')
-        
-        test_credentials.save_credentials()
-        
-        self.assertEqual(len (Credentials.display_credentials ('silvie')), 2)
-        
+    
     def test_credentials_exist(self):
         #save the new credential
         self.new_credentials.save_credentials()
-        
-        test_credential = Credentials ('silvie', 'Twitter', 'twitter1')
-        
+        test_credential = Credentials ( 'Twitter', 'silvie', 'twitter1')
         test_credential.save_credentials()
         
-        #user contacts exist method
         credentials_exists = Credentials.credentials_exist('Twitter')
-        
         self.assertTrue(credentials_exists)
         
         
 if __name__ == '__main__':
-    unittest.main(verbosity=2)
+    unittest.main()
