@@ -5,14 +5,14 @@ class User:
     
     user_list = []
     
-    def __init__(self, user_name, password):
+    def __init__(self, username, password):
         
         '''
         ags:
         username= user's name
         password = account password
         '''
-        self.user_name = user_name
+        self.username = username
         self.password = password
         
     def save_user(self) : 
@@ -27,7 +27,7 @@ class User:
         User.user_list.remove(self)
 
     @classmethod
-    def find_by_username (cls, user_name):
+    def find_by_username (cls, username):
         '''
         Will authenticate the username 
         
@@ -35,11 +35,11 @@ class User:
         returns: user
         '''
         for user in User.user_list:
-            if user.user_name == user_name:
+            if user.username == username:
                 return user
     
     @classmethod
-    def user_exists (cls, user_name, password):
+    def user_exists (cls, username, password):
         '''
         This will show whether the user exists in the user list information
         
@@ -47,7 +47,7 @@ class User:
         Authenticates by using username and password
         
         '''
-        for user in cls.user_list:
-            if user.user_name == user_name and user.password == password:
+        for user in User.user_list:
+            if user.username == username and user.password == password:
                 return True
         return False

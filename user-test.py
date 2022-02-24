@@ -8,8 +8,6 @@ from user import User
 class Testuser(unittest.TestCase):
     '''
     this test class defines the test cases for the user class 
-    '''
-    '''
     Args:
     unittest.Testcase: testcase class which helps in creating test cases.
     '''
@@ -24,7 +22,7 @@ class Testuser(unittest.TestCase):
         '''
         test_init test case to test if the object is initialized appropriately
         '''
-        self.assertEqual(self.new_user.user_name, 'Silvia')
+        self.assertEqual(self.new_user.username, 'Silvia')
         self.assertEqual(self.new_user.password, '53')
         
     def test_save_user(self):
@@ -67,11 +65,24 @@ class Testuser(unittest.TestCase):
         test to check whether one can find user by username
         '''
         self.new_user.save_user()
-        test_userA = User('testy', '54')
-        test_userA.save_user()
+        test_user1 = User('testy', '54')
+        test_user1.save_user()
         
         found_user = User.find_by_username('testy')
-        self.assertEqual(found_user.password, test_userA.password)
+        self.assertEqual(found_user.password, test_user1.password)
+        
+    def test_remove_users(self):
+        '''
+        test to remove a user from the list
+        '''
+        self.new_user.save_user()
+        test_user = User('Testy', '115')
+        test_user.save_user()
+        test_user1 = User('Kate', '162')
+        test_user1.save_user()
+        
+        test_user.delete_user()
+        self.assertEqual(len(User.user_list), 2)
     
 if __name__ == '__main__':
     unittest.main()
