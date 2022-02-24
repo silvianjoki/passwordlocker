@@ -1,6 +1,6 @@
+from abc import abstractclassmethod
 import random
 from signal import default_int_handler
-# import choice
 import string
 
 class Credentials: 
@@ -32,7 +32,7 @@ class Credentials:
 
     
     @classmethod
-    def display_credentials(cls, username):
+    def display_credentials(cls):
         '''
         this method displays the credential list
         '''
@@ -83,3 +83,18 @@ class Credentials:
             if credential.app_name == app_name:
                 return True
         return False
+    
+    @classmethod
+    def find_by_app_name(cls, app_name):
+        '''
+        This method takes in the application details and returns an individual's details.
+        '''
+        for credential in Credentials.credentials_list:
+            if credential.app_name == app_name:
+                return credential
+        
+    @staticmethod
+    def generate_password(passwordlength):
+        random_alphanumeric = string.ascii_letters + string.digits
+        password = ''.join((random.choice(random_alphanumeric) for i in range (passwordlength)))
+        return password
