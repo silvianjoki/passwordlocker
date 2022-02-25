@@ -85,9 +85,6 @@ def generate_a_password(passwordLength):
 
 def main ():
     print ('Hello, welcome to passwordlocker! Use this short codes to get around')
-    '''
-    Loop that manages the whole application
-    '''
     print('''Short codes
     nu- new user short code to create account
     lg- log in to your password locker account
@@ -98,36 +95,50 @@ def main ():
     short_code = input().lower()
     
     if short_code == 'nu':
-        '''
-        Create a new user account
-        '''
-        
-        print ('\n')
+        print ('\n Create new account here')
         print ('new passwordlocker account')
         print('_'*10)
-        
         print('username ..')
-        user_name = input()
+        while True:
+            user_name = input()
+            if username.isalpha():
+                print("Enter a password for your account")
+                print(" "*4 + "*the password must be 5 characters or longer*")
+                while True:
+                    password = input()
+                    if len(password) >= 5:
+                        save_user(create_user(username, password))
+                        print(f"\nAccount for {username} has been  created.\nProceed to sign in.\n")
+                        break
+                    else:
+                        print("\nThe password you entered is too short.")
+                        print("Please use a password of 5 characters or more.")
+                        continue
+                    
+                else:
+                    print('\nsorry invalid username')
+                    continue
+                break
         
-        print('password')
-        login_password = input()
-        save_user(create_user(user_name, login_password))
-        
-        print('\n')
-        print('\n')
-    
     elif short_code =='lg':
-        print('\n')
         print('log in into the passwordlocker account')
         print('enter your username')
         username = input()
+        print('password')
+        password = input().strip('')
+        print('\n')
         
-        print('enter your password')
-        login_password= input()
-        
-        if check_existing_user(username, login_password):
+        if check_existing_user(username, password):
             print('\n succesful login')
-            print('use short codes to navigate to what you want to do CC: Create new credentials \n DC: delete a credential \n FC: Find credentials  \n VC: View all credentials')
+            
+            while True:
+            print('use short codes to navigate to what you want to do.')
+            '''
+            CC: Create new credentials 
+            DC: delete a credential 
+            FC: Find credentials  
+            VC: View all credentials
+            '''
             short_code = input().lower()
             
             if short_code == 'CC':
