@@ -80,10 +80,8 @@ class TestCredentials(unittest.TestCase):
         self.new_credentials.save_credentials()
         test_credential = Credentials ( 'Twitter', 'silvie', 'twitter1')
         test_credential.save_credentials()
-        
         credentials_exists = Credentials.credentials_exist('Twitter')
         self.assertTrue(credentials_exists)
-        
         
 if __name__ == '__main__':
     unittest.main()
