@@ -76,11 +76,14 @@ def save_credentials (new_credentials):
     '''
     new_credentials.save_credentials()
     
-def generate_a_password(passwordLength):
+def generated_password(username):
     '''
     Function that generates random password of 8 characters
+    Args:
+    account: takes account name 
     '''
-    return Credentials.generate_password(passwordLength)
+    password = Credentials.generate_password()
+    return password
 
 
 
@@ -117,7 +120,7 @@ def main ():
                         print('*'*20)
                         
                 elif password_choice == 'og':
-                    password = generate_a_password()
+                    password = generated_password()
                     break
                 else:
                     print('You made an invalid choice. Kindly try once more')
@@ -229,6 +232,4 @@ def main ():
             print('did you add anything?')
 
 
-
-if __name__ == ' __main___ ':
-    main()
+main()
