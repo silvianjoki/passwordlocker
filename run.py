@@ -93,7 +93,7 @@ def main ():
     nu- new user short code to create account
     lg- log in to your password locker account
     ex- exit password locker account''')
-    short_code = input().lower()g
+    short_code = input().lower()
     if short_code == 'nu':
         print ('\n Create new account here')
         print ('new passwordlocker account')

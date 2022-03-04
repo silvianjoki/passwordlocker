@@ -48,7 +48,7 @@ class TestCredentials(unittest.TestCase):
         self.new_credentials.save_credentials()
         test_credentials = Credentials('Twitter','silvie' 'twitter1')
         test_credentials.save_credentials()
-        self.assertEqual( len(Credentials.credentials_list), 2)
+        self.assertEqual(len(Credentials.credentials_list), 2)
         
     def test_generate_password(self):
         '''
