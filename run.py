@@ -161,7 +161,7 @@ def main ():
                         app_name = input()
                         print('this will delete details for ex shared above')
                         remove_credentials(find_credentials(app_name))
-                        print('Your  ' + str(app_name) +  '  credentials were successfully removed' )
+                        print('Your credentials were successfully removed' )
                     
                     
                     elif short_code == 'vc':
@@ -177,7 +177,7 @@ def main ():
                                 print('*'*10)
                                 
                         else: 
-                            print('No existing for' + str(app_name) + 'credentials here')
+                            print('No existing for' + str(username) + 'credentials here')
                             continue
 
 
