@@ -147,7 +147,7 @@ def main ():
                         print('Account username:')
                         account_username = input()
                         
-                        print('Account username:')
+                        print('Account password:')
                         account_password = input()
                         
                         save_credentials(create_credentials(app_name, account_username, account_password))
