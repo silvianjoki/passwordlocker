@@ -40,23 +40,6 @@ class TestCredentials(unittest.TestCase):
         self.new_credentials.save_credentials()
         self.assertEqual(len (Credentials.credentials_list), 1)
         
-    def test_save_multiple_credentials(self):
-        '''
-        Test case to save multiple objects
-        '''
-        #save new information for multiple users
-        self.new_credentials.save_credentials()
-        test_credentials = Credentials('Twitter','silvie' 'twitter1')
-        test_credentials.save_credentials()
-        self.assertEqual(len(Credentials.credentials_list), 2)
-        
-    def test_generate_password(self):
-        '''
-        Test case to check whether user can sign into the app
-        '''
-        generated_password = self.new_credentials.generate_password()
-        self.assertEqual( len(generated_password), 8 )
-        
     def test_display_credentials(self):
         '''
         Test case displays all user credentials

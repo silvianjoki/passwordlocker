@@ -92,7 +92,7 @@ def generated_password(username):
 def main ():
     print ('Hello, welcome to passwordlocker! Kindly share your name')
     username = input()
-    print(f'Hello {name} explore this application.')
+    print('Hello, explore this application.')
     
     while True:
         '''
@@ -115,7 +115,7 @@ def main ():
             password = input()
             
             save_user(create_user(username, password))
-            print(f'Hi {username}, your account has been successfully created')
+            print('Hi, your account has been successfully created')
         
 
         
@@ -151,57 +151,60 @@ def main ():
                         account_password = input()
                         
                         save_credentials(create_credentials(app_name, account_username, account_password))
-                        print(' Account credentials for' + {app_name} +  'under you name were created ')
-                        
+                        print('Account credentials under you name were created ')
+                        continue
                     
                     elif short_code == 'dc':
                         '''delete existing credentials'''
-                        print(f'Kindly add details for the account you wish to delete')
+                        print('Kindly add details for the account you wish to delete')
+                        print('*'*10)
                         app_name = input()
-                        print(f'this will delete details for {app_name} shared above')
+                        print('this will delete details for ex shared above')
                         remove_credentials(find_credentials(app_name))
-                        print('Your credentials were successfully removed for' + {app_name} )
+                        print('Your credentials were successfully removed' )
                     
                     
                     elif short_code == 'vc':
                         '''display class credentials'''
                         if display_credentials():
-                            print(f'View your account credentials')
+                            print('View your account credentials')
                             print('*'*10)
                             
                             for credential in display_credentials():
-                                print(f'App name: {credential.app_name}')
-                                print(f'Username: {credential.account_username}')
-                                print(f'password for account: {credential.account_password}')
+                                print('App name: {credential.app_name}')
+                                print('Username: {credential.account_username}')
+                                print('password for account: {credential.account_password}')
                                 print('*'*10)
                                 
                         else: 
                             print('No existing credentials here')
+                            continue
 
 
                     elif short_code == 'fc':
                         '''find credentials for user'''
-                        print(f'find your credenetials in the list')
+                        print('find your credenetials in the list')
                         print('_'*10)
                         print('\eg Insta')
                         searched_app = input()
                         
                         if check_existing_credentials(searched_app):
                             searched_credential = find_credentials(searched_app)
-                            print('app_name {searched_app.app_name}')
-                            print('account_username {searched_app.account_username}')
-                            print('account_password {searched_app.account_password}')
+                            print('app_name {searched_credential.app_name}')
+                            print('account_username {searched_credential.account_username}')
+                            print('account_password {searched_credential.account_password}')
                             
                         else:
-                            print('Sadly, we coud not find the' + {searched_app} + 'credentials')
-                        
-                        
+                            print('Sadly, we coud not find the' + {searched_credential} + 'credentials')
+                        continue
+
                     elif short_code == 'ex':
                         '''exit the app'''
-                        print(f' thank you for visiting our application {username}')
+                        print(' thank you for visiting our application {username}')
                         print('*'*10)
                     else:
-                        print(f' kindly input a code to navigate to your credentials or add them again.')
+                        print(' kindly input a code to navigate to your credentials or add them again.')
+                        continue
 
                     
         elif short_code == 'ex':
@@ -210,5 +213,5 @@ def main ():
         else:
             print('did you add anything?Kindy try againg')
 
-
-main()
+if __name__ == '__main__':
+    main()
