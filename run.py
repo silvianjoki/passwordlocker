@@ -92,7 +92,7 @@ def generated_password(username):
 def main ():
     print ('Hello, welcome to passwordlocker! Kindly share your name')
     username = input()
-    print('Hello, explore this application.')
+    print('Hello '+ str(username)+ '  explore this application.')
     
     while True:
         '''
@@ -115,7 +115,7 @@ def main ():
             password = input()
             
             save_user(create_user(username, password))
-            print('Hi, your account has been successfully created')
+            print('Hi   ' + str(username)+ '   account has been successfully created')
         
 
         
@@ -151,7 +151,7 @@ def main ():
                         account_password = input()
                         
                         save_credentials(create_credentials(app_name, account_username, account_password))
-                        print('Account credentials under you name were created ')
+                        print('Account credentials under  ' + str(username)+ '  were created ')
                         continue
                     
                     elif short_code == 'dc':
@@ -161,7 +161,7 @@ def main ():
                         app_name = input()
                         print('this will delete details for ex shared above')
                         remove_credentials(find_credentials(app_name))
-                        print('Your credentials were successfully removed' )
+                        print('Your  ' + str(app_name) +  '  credentials were successfully removed' )
                     
                     
                     elif short_code == 'vc':
@@ -171,13 +171,13 @@ def main ():
                             print('*'*10)
                             
                             for credential in display_credentials():
-                                print(f'App name: {credential.app_name}' )
-                                print(f'Account_username: {credential.account_username}')
-                                print(f'Account_password: {credential.account_password}')
+                                print('App name:' + str(credential.app_name))
+                                print(f'Account_username:' + str(credential.account_username))
+                                print(f'Account_password:' + str(credential.account_password))
                                 print('*'*10)
                                 
                         else: 
-                            print('No existing credentials here')
+                            print('No existing for' + str(app_name) + 'credentials here')
                             continue
 
 
@@ -190,9 +190,9 @@ def main ():
                         
                         if check_existing_credentials(searched_app):
                             searched_credential = find_credentials(searched_app)
-                            print(f'app_name {searched_credential.app_name}')
-                            print(f'account_username {searched_credential.account_username}')
-                            print(f'account_password {searched_credential.account_password}')
+                            print('app_name' + str(searched_credential.app_name))
+                            print('account_username' + str(searched_credential.account_username))
+                            print('account_password' + str(searched_credential.account_password))
                             
                         else:
                             print('Sadly, we coud not find the' + {searched_credential} + 'credentials')
