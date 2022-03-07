@@ -171,9 +171,9 @@ def main ():
                             print('*'*10)
                             
                             for credential in display_credentials():
-                                print('App name: {credential.app_name}')
-                                print('Username: {credential.account_username}')
-                                print('password for account: {credential.account_password}')
+                                print(f'App name: {credential.app_name}' )
+                                print(f'Account_username: {credential.account_username}')
+                                print(f'Account_password: {credential.account_password}')
                                 print('*'*10)
                                 
                         else: 
@@ -190,9 +190,9 @@ def main ():
                         
                         if check_existing_credentials(searched_app):
                             searched_credential = find_credentials(searched_app)
-                            print('app_name {searched_credential.app_name}')
-                            print('account_username {searched_credential.account_username}')
-                            print('account_password {searched_credential.account_password}')
+                            print(f'app_name {searched_credential.app_name}')
+                            print(f'account_username {searched_credential.account_username}')
+                            print(f'account_password {searched_credential.account_password}')
                             
                         else:
                             print('Sadly, we coud not find the' + {searched_credential} + 'credentials')
@@ -200,7 +200,7 @@ def main ():
 
                     elif short_code == 'ex':
                         '''exit the app'''
-                        print(' thank you for visiting our application {username}')
+                        print(' thank you for visiting our application ')
                         print('*'*10)
                     else:
                         print(' kindly input a code to navigate to your credentials or add them again.')
